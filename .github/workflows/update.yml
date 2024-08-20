@@ -10,7 +10,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo ${{ github.actor }}
-      - run: ${{ github.context }}
+      - run: echo ${{ github.context }}
+      - run: echo ${{ github.event.pull_request.head.ref }}
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
   update-lockfile:
     runs-on: ubuntu-latest
     if: ${{ github.actor == 'dependabot[bot]' }}
