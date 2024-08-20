@@ -6,11 +6,6 @@ permissions: read-all
 env:
   NODE_VERSION: '18'
 jobs:
-  test-job:
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo ${{ github.actor }}
-      - run: ${{ github.context }}
   update-lockfile:
     runs-on: ubuntu-latest
     if: ${{ github.actor == 'dependabot[bot]' }}
